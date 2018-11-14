@@ -6,7 +6,7 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/Ifecha"
+        android:id="@+id/nombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="3"
@@ -14,7 +14,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/Ipeso"
+        android:id="@+id/fecha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
@@ -23,7 +23,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/Icosto"
+        android:id="@+id/dias"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
