@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
 
-        android:text="13Bs"
+        android:text="falta"
         android:textAlignment="textEnd"
         android:textSize="18sp" />
 

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "559435706953",
+    "firebase_url": "https://cumple-fbc2a.firebaseio.com",
+    "project_id": "cumple-fbc2a",
+    "storage_bucket": "cumple-fbc2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559435706953:android:1f7403f4f6ad6f62",
+        "android_client_info": {
+          "package_name": "com.gunar.cumple"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559435706953-r2fic5dsieco3nud1gle8f846dn3jguf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gunar.cumple",
+            "certificate_hash": "dd0a52f104f8508bff374feed3562e1fd36f4c57"
+          }
+        },
+        {
+          "client_id": "559435706953-gcme1harocdt50mvhk9n2pd44jp6fd1t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt181A6RG-iCGt0rV6KsfqYQ9aIr4_ayk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "559435706953-gcme1harocdt50mvhk9n2pd44jp6fd1t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,7 +3,7 @@ package com.gunar.cumple.model;
 public class Cumple {
     private String nombre, fecha;
 
-    Cumple() {
+    public Cumple() {
 
     }
 
