@@ -1,6 +1,7 @@
 package com.gunar.cumple.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 import com.gunar.cumple.R;
 import com.gunar.cumple.model.Cumple;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
@@ -46,8 +50,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         Cumple soli = soliList.get(position);
 
         holder.nombre.setText(soli.getNombre());
-        holder.fecha.setText(soli.getFecha()+"Kg");
-        holder.dias.setText("falta");
+        holder.fecha.setText(soli.getFecha());
+        holder.dias.setText(days(soli.getFecha()));
     }
 
     @Override
@@ -63,6 +67,41 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public interface ClickListener {
         void onItemClick(int position, View v);
 
+    }
+
+
+    String days(String cumple){
+        try {
+            //Dates to compare
+            int year = Calendar.getInstance().get(Calendar.YEAR);
+
+
+
+            SimpleDateFormat dates = new SimpleDateFormat("dd/MM/yyyy");
+            String CurrentDate=  dates.format(new Date());
+
+            String FinalDate=  cumple.substring(0, 6)+year;
+
+            Date date1;
+            Date date2;
+
+            //Setting dates
+            date1 = dates.parse(CurrentDate);
+            date2 = dates.parse(FinalDate);
+
+            //Comparing dates
+            long difference = Math.abs(date1.getTime() - date2.getTime());
+            long differenceDates = difference / (24 * 60 * 60 * 1000);
+
+            //Convert long to String
+            String dayDifference = Long.toString(differenceDates);
+
+            return "faltan " + dayDifference + " dias";
+        }
+        catch (Exception exception) {
+            Log.e("DIDN'T WORK", "exception " + exception);
+        }
+        return "";
     }
 
 

@@ -71,26 +71,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void load(){
-        db.collection("cumples").whereEqualTo("nombre","Gunar").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+    public void load() {
+        db.collection("cumples").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                                  @Override
                                                                  public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                                    if(task.isSuccessful()){
-                                                                        for (QueryDocumentSnapshot document : task.getResult()) {
-                                                                            Cumple cumple = document.toObject(Cumple.class);
-                                                                            soliList.add(cumple);
-                                                                        }
-                                                                        soliAdapter.notifyDataSetChanged();
-                                                                    }
+                                                                     if (task.isSuccessful()) {
+                                                                         for (QueryDocumentSnapshot document : task.getResult()) {
+                                                                             Cumple cumple = document.toObject(Cumple.class);
+                                                                             soliList.add(cumple);
+                                                                         }
+                                                                         soliAdapter.notifyDataSetChanged();
+                                                                     }
                                                                  }
                                                              }
 
         );
     }
-    public void nuevo(){
+
+    public void nuevo() {
         Map<String, Object> nuevo = new HashMap<String, Object>();
         nuevo.put("nombre", nombre.getText().toString());
         nuevo.put("fecha", fecha.getText().toString());
+
+        nombre.setText("");
+        fecha.setText("");
 
         db.collection("cumples").add(nuevo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
@@ -100,38 +104,5 @@ public class MainActivity extends AppCompatActivity {
                 load();
             }
         });
-    }
-
-
-    String days(String cumple){
-        try {
-            //Dates to compare
-            int year = Calendar.getInstance().get(Calendar.YEAR);
-
-            String CurrentDate=  "09/24/2015";
-            String FinalDate=  cumple.substring(0, 6)+year;
-
-            Date date1;
-            Date date2;
-
-            SimpleDateFormat dates = new SimpleDateFormat("MM/dd/yyyy");
-
-            //Setting dates
-            date1 = dates.parse(CurrentDate);
-            date2 = dates.parse(FinalDate);
-
-            //Comparing dates
-            long difference = Math.abs(date1.getTime() - date2.getTime());
-            long differenceDates = difference / (24 * 60 * 60 * 1000);
-
-            //Convert long to String
-            String dayDifference = Long.toString(differenceDates);
-
-            return dayDifference;
-        }
-        catch (Exception exception) {
-            Log.e("DIDN'T WORK", "exception " + exception);
-        }
-        return "";
     }
 }
